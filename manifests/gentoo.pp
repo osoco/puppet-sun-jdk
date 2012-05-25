@@ -1,12 +1,13 @@
 class sun-jdk::gentoo
 {
     include wget
+    include portage
 
     wget::fetch { "sun-jdk-download":
         source => "http://download.oracle.com/otn-pub/java/jdk/6u29-b11/jdk-6u29-linux-x64.bin",
         destination => "/usr/portage/distfiles/jdk-6u29-linux-x64.bin"
     }
-
+    
     file { "/etc/portage/package.license/sun-jdk":
         owner => 'root',
         group => 'root',
